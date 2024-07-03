@@ -11,20 +11,34 @@
         <button id="addTodo">タスクを追加</button>
     </div>
     <ul id="todoList"></ul>
+    <div>
+        <button id="addadd">今日の予定を自動でリストアップ</button>
+    </div>
     <script>
         const inputAria = document.getElementById("input");
         const addButton = document.getElementById("addTodo");
         const todoList = document.getElementById("todoList");
+        const addaddButton = document.getElementById("addadd");
 
         const main = () => {
             const todoText = inputAria.value;
             todoList.innerHTML += `
                 <li>${todoText}</li>
             `;
-            todoText.value = ``;
+            inputAria.value = ``;
+        }
+
+        const addaddTodo = () => {
+            const routine = ["布団をたたむ", "歯を磨く", "着替える", "髪を整える", "学校へ行く"]
+            routine.map((todo) => {
+                todoList.innerHTML += `
+                    <li>${todo}</li>
+                `;
+            })
         }
 
         addButton.addEventListener("click", main);
+        addaddButton.addEventListener("click", addaddTodo);
     </script>
 </body>
 </html>
