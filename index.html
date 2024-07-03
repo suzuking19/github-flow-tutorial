@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo app</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="input" />
+        <button id="addTodo">タスクを追加</button>
+    </div>
+    <ul id="todoList"></ul>
+    <script>
+        const inputAria = document.getElementById("input");
+        const addButton = document.getElementById("addTodo");
+        const todoList = document.getElementById("todoList");
+
+        const main = () => {
+            const todoText = inputAria.value;
+            todoList.innerHTML += `
+                <li>${todoText}</li>
+            `;
+            todoText.value = ``;
+        }
+
+        addButton.addEventListener("click", main);
+    </script>
+</body>
+</html>
