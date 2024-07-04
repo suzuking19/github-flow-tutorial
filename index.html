@@ -13,12 +13,14 @@
     <ul id="todoList"></ul>
     <div>
         <button id="addadd">今日の予定を自動でリストアップ</button>
+        <button id="refresh-button" style="background-color: aquamarine;">削除</button>
     </div>
     <script>
         const inputAria = document.getElementById("input");
         const addButton = document.getElementById("addTodo");
         const todoList = document.getElementById("todoList");
         const addaddButton = document.getElementById("addadd");
+        const refreshButton = document.getElementById("refresh-button");
 
         const main = () => {
             const todoText = inputAria.value;
@@ -37,8 +39,13 @@
             })
         }
 
+        const refresh = () => {
+            location.reload();
+        }
+
         addButton.addEventListener("click", main);
         addaddButton.addEventListener("click", addaddTodo);
+        refreshButton.addEventListener("click", refresh);
     </script>
 </body>
 </html>
